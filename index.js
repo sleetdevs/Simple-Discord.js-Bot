@@ -1,5 +1,5 @@
 const { Client, GatewayIntentBits } = require('discord.js');
-require('dotenv').config(); // For managing environment variables
+require('dotenv').config();
 
 const client = new Client({
   intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages, GatewayIntentBits.MessageContent],
@@ -11,7 +11,7 @@ client.once('ready', () => {
 });
 
 client.on('messageCreate', (message) => {
-  if (message.author.bot) return; // Ignore bot messages
+  if (message.author.bot) return;
   if (message.content === '!hello') {
     message.channel.send(`Hello, ${message.author.username}!`);
   }
